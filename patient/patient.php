@@ -34,9 +34,42 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="assets/css/mypatcss.css">
 		<link rel="stylesheet" href="assets/css/mycss.css">
+
+		<!-- favicon  -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
+		<script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
+
+		<style>
+            html{
+
+            }
+            #main {
+				position: fixed;
+                background: linear-gradient(-45deg, #a72222, #6d1111de, #23a6d5, #23d5ab);
+                background-size: 900% 900%;
+				translate: (-50%, -50%);
+                animation: gradient 15s ease infinite;
+                height: 1vh;
+            }
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        </style>
 		
 	</head>
-	<body>
+	<body >
 		
 		<!-- navigation -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -59,6 +92,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 							<li><a href="patient.php">Home</a></li>
 							<!-- <li><a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>" >Profile</a></li> -->
 							<li><a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>">Appointment</a></li>
+							<li><a href="about.php?patientId=<?php echo $userRow['icPatient']; ?>">About Us</a></li>
 						</ul>
 					</ul>
 					
@@ -70,7 +104,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa-solid fa-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -85,13 +119,13 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<!-- navigation -->
 		
 		<!-- 1st section start -->
-		<div id="promo-1" class="content-block promo-1 bg-offwhite">
+		<div id="main" class="content-block" style="min-height: 750px; background-color:aqua;">
 			<div class="container">
 				<div class="row">
-					<div class="col-xs-12 col-md-8">
+					<div class="col-xs-12 col-md-5" style="margin-top: 210px;">
 						
 						
-						<?php if ($userRow['patientMaritialStatus']=="") {
+						<?php if ($userRow['patientPhone'] =="") {
 						// <!-- / notification start -->
 						echo "<div class='row'>";
 							echo "<div class='col-lg-12'>";
@@ -105,12 +139,12 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 							} else {
 							}
 							?>
+							
 							<!-- notification end -->
-							<h2>Hi <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?>. Make appointment today!</h2>
-							<div class="input-group" style="margin-bottom:10px;">
+							<h2 style="color: WHITE; font-weight:900;">Hi <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?>. Make an appointment today!</h2>
+							<div class="input-group" ">
 								<div class="input-group-addon">
-									<i class="fa fa-calendar">
-									</i>
+								<i class="fa-solid fa-calendar"></i>
 								</div>
 								<input class="form-control" id="date" name="date" value="<?php echo date("Y-m-d")?>" onchange="showUser(this.value)"/>
 							</div>
@@ -150,7 +184,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 						<div class="container">
 							<div class="row">
 								<div class="col-xs-12 col-md-8">
-									<div id="txtHint"></div>
+									<div id="txtHint" style="overflow-x:auto;"></div>
 								</div>
 							</div>
 						</div>
@@ -167,10 +201,10 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<!-- forth section end -->
 		
 		<!-- footer start -->
-		<div class="copyright-bar bg-black foot">
+		<div class="copyright-bar bg-black foot" style="position: fixed;">
 			<div class="container">
-				<p class="pull-left small">© pgblocks - Pinegrow Blocks</p>
-				<p class="pull-right small">Made with <i class="fa fa-heart pomegranate"></i> on Planet Earth</p>
+				<p class="small" style="display:flex;justify-content:center">© T&T SOLUTIONS</p>
+				
 			</div>
 		</div>
 		<!-- footer end -->

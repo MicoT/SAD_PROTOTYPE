@@ -12,6 +12,7 @@ $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 		die( "Error running $sql: " . mysqli_error());
 	}
 	$userRow=mysqli_fetch_array($res);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,13 +28,22 @@ $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 		<link href="assets/css/default/style.css" rel="stylesheet">
 		<link href="assets/css/default/blocks.css" rcel="stylesheet">
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/mycss.css">
+		<script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
 
+		<!-- favicon  -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
 	</head>
-	<body>
+	<body >
 		<!-- navigation -->
 		<nav class="navbar navbar-default " role="navigation">
-			<div class="container-fluid">
+			<div class="container-fluid" style="background-color: white;">
 				<!-- Brand and toggle get grouped for better mobile display -->
+				<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.jpg" height="100px"></a>
+				<a href="#" id="logo"><span>Dynamic</span> Process</a>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
@@ -41,7 +51,6 @@ $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.png" height="40px"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,13 +64,13 @@ $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 					
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?><b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li>
 									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa-solid fa-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -84,7 +93,7 @@ echo "<div class='page-header'>";
 echo "<h1>Your appointment list. </h1>";
 echo "</div>";
 echo "<div class='panel panel-primary'>";
-echo "<div class='panel-heading'>List of Appointment</div>";
+echo "<div class='panel-heading' style='background-color:red;'>List of Appointment</div>";
 echo "<div class='panel-body'>";
 echo "<table class='table table-hover'>";
 echo "<thead>";
@@ -122,7 +131,7 @@ echo "<td>" . $userRow['scheduleDay'] . "</td>";
 echo "<td>" . $userRow['scheduleDate'] . "</td>";
 echo "<td>" . $userRow['startTime'] . "</td>";
 echo "<td>" . $userRow['endTime'] . "</td>";
-echo "<td><a href='invoice.php?appid=".$userRow['appId']."' target='_blank'><span class='glyphicon glyphicon-print' aria-hidden='true'></span></a> </td>";
+echo "<td><a href='invoice.php?appid=".$userRow['appId']."' target='_blank'><span class='fa-solid fa-print' aria-hidden='true' style='color:red;'></span></a> </td>";
 }
 
 echo "</tr>";

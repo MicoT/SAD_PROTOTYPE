@@ -56,7 +56,6 @@ alert('Appointment booking fail. Please try again.');
 <?php
 header("Location: patient/patient.php");
 }
-//dapat dari generator end
 }
 ?>
 <!DOCTYPE html>
@@ -72,15 +71,23 @@ header("Location: patient/patient.php");
 		<link href="assets/css/default/style.css" rel="stylesheet">
 		<link href="assets/css/default/blocks.css" rcel="stylesheet">
 
+		<link rel="stylesheet" href="assets/css/mycss.css">
+		<script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
 
-		<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-
+		<!-- favicon  -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
+		
 	</head>
 	<body>
 		<!-- navigation -->
 		<nav class="navbar navbar-default " role="navigation">
-			<div class="container-fluid">
+			<div class="container-fluid" style="background-color: white;">
 				<!-- Brand and toggle get grouped for better mobile display -->
+				<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.jpg" height="100px"></a>
+				<a href="#" id="logo"><span>Dynamic</span> Process</a>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
@@ -88,7 +95,6 @@ header("Location: patient/patient.php");
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.png" height="40px"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -108,7 +114,7 @@ header("Location: patient/patient.php");
 									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa-solid fa-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -127,23 +133,9 @@ header("Location: patient/patient.php");
 					<!-- start -->
 					<!-- USER PROFILE ROW STARTS-->
 					<div class="row">
-						<div class="col-md-3 col-sm-3">
-							
-							<div class="user-wrapper">
-								<img src="assets/img/1.jpg" class="img-responsive" />
-								<div class="description">
-									<h4><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></h4>
-									<h5> <strong> Website Designer </strong></h5>
-									<p>
-										Pellentesque elementum dapibus convallis.
-									</p>
-									<hr />
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
-								</div>
-							</div>
-						</div>
+					
 						
-						<div class="col-md-9 col-sm-9  user-wrapper">
+						<div class="col-md-12 col-sm-9  user-wrapper">
 							<div class="description">
 								
 								
@@ -172,11 +164,14 @@ header("Location: patient/patient.php");
 											</div>
 											
 											<div class="form-group">
-												<label for="recipient-name" class="control-label">Symptom:</label>
-												<input type="text" class="form-control" name="symptom" required>
+												<label for="recipient-name" class="control-label">Required Therapy:</label>
+													<select iclass="form-control" name="symptom" required>
+														<option value="Occupational">Occupational Therapy</option>
+														<option value="Speech">Speech Language Therapy</option>
+													</select>
 											</div>
 											<div class="form-group">
-												<label for="message-text" class="control-label">Comment:</label>
+												<label for="message-text" class="control-label">Additional Information:</label>
 												<textarea class="form-control" name="comment" required></textarea>
 											</div>
 											<div class="form-group">

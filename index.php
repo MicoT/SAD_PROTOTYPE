@@ -27,7 +27,7 @@ $_SESSION['patientSession'] = $row['icPatient'];
 alert('Login Success');
 </script>
 <?php
-header("Location: DP.php");
+header("Location: index.php");
 } else {
 ?>
 <script>
@@ -59,7 +59,7 @@ if( $result )
 {
 ?>
 <script type="text/javascript">
-alert('Register success. Please Login to make an appointment.');
+alert('Register Succesful!');
 </script>
 <?php
 }
@@ -80,33 +80,48 @@ alert('User already registered. Please try again');
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Clinic Appointment Application</title>
-        <!-- Bootstrap -->
-        <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
+        <title>Dynamic Center Therapy Center</title>
         <link href="asset/css/style.css" rel="stylesheet">
         <link href="asset/css/style1.css" rel="stylesheet">
-        <link href="asset/css/blocks.css" rel="stylesheet">
+        <link href="/asset/css/blocks.css" rel="stylesheet">
+        <link rel="stylesheet" href="asset/css/pop-up-box.css">
+        <link rel="stylesheet" href="asset/css/mycss.css">
         <link href="asset/css/date/bootstrap-datepicker.css" rel="stylesheet">
         <link href="asset/css/date/bootstrap-datepicker3.css" rel="stylesheet">
-        <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
-        <!-- <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />  -->
-
-        <!--Font Awesome (added because you use icons in your prepend/append)-->
         <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
         <link href="asset/css/material.css" rel="stylesheet">
-        <link rel="stylesheet" href="asset/css/mycss.css">
+        <script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <!-- favicon  -->
         <link rel="apple-touch-icon" sizes="180x180" href="asset/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="asset/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="asset/img/favicon-16x16.png">
         <link rel="manifest" href="asset/img/site.webmanifest">
+        <style>
+
+        </style>
+        <script>
+        $(document).ready(function(){
+            $('.click').click(function(){
+            $('.popup_box_disclaimer').css("display", "block");
+            });
+            $('.confirm-btn').click(function(){
+            $('.popup_box_disclaimer').css("display", "none");
+            });
+            $('.notif').click(function(){
+            $('.popup_box_notif').css("display", "block");
+            });
+            $('.close-btn').click(function(){
+            $('.popup_box_notif').css("display", "none");
+            });
+        });
+
+
+    </script>
     </head>
     <body>
-        <!-- navigation -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <a class="navbar-brand" href="index.php"><img alt="Brand" src="asset/img/logo.jpg" height="80px"></a>
                 <a href="#" id="logo"><span>Dynamic</span> Process</a>
                 <div class="navbar-header">
@@ -117,21 +132,17 @@ alert('User already registered. Please try again');
                     <span class="icon-bar"></span>
                     </button>
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     
                     
                     <ul class="nav navbar-nav navbar-right head">
-                        
-
-                        <!-- <li><a href="adminlogin.php">Admin</a></li> -->
-                        <li><a href="#" data-toggle="modal" data-target="#myModal">Sign Up</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#myModal" class="click">Sign Up</a></li>
                    
                         <li>
                             <p class="navbar-text">Already have an account?</p>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                            <a href="#" class="dropdsown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
                             <ul id="login-dp" class="dropdown-menu">
                                 <li>
                                     <div class="row">
@@ -140,14 +151,14 @@ alert('User already registered. Please try again');
                                             <form class="form" role="form" method="POST" accept-charset="UTF-8" >
                                                 <div class="form-group">
                                                     <label class="sr-only" for="icPatient">Email</label>
-                                                    <input type="text" class="form-control" name="icPatient" placeholder="IC Number" required>
+                                                    <input type="text" class="form-control" name="icPatient" placeholder="Patient ID" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="sr-only" for="password">Password</label>
                                                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="submit" name="login" id="login" class="btn btn-primary btn-block">Sign in</button>
+                                                    <button type="submit" name="login" id="login" class="btn btn-danger btn-block">Sign in</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -160,7 +171,15 @@ alert('User already registered. Please try again');
             </div>
         </nav>
         <!-- navigation -->
-
+        <!-- pop up box -->
+        <div class="popup_box_disclaimer modal-fade">
+            <i class="fas fa-exclamation"></i>
+            <h4 style="color:black">Please consult a Pediatrician first before considering our services. We do not diagnose, we only provide Occupational and Speech language therapy services.</h4>
+            <label>Do you acknowledge this?</label>
+            <div class="confrim">
+                <a href="#" class="btn btn-danger confirm-btn">I acknowledge.</a>
+            </div>
+        </div>
         <!-- modal container start -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -190,12 +209,13 @@ alert('User already registered. Please try again');
                                         </div>
                                         
                                         <input type="text" name="patientEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
-                                        <input type="number" name="icPatient" value="" class="form-control input-lg" placeholder="Your IC Number"  required/>
+                                        <h5 style="color: black">Patient ID:</h5>
+                                        <input id="id_gen" type="text" name="icPatient" value="" class="form-control input-lg idpatient" style="color:black;" placeholder="Patient ID" readonly/>
                                         
                                         
-                                        <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password"  required/>
+                                        <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password" id="password"  required/>
                                         
-                                        <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password"  required/>
+                                        <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" id="confirm_password"  required/>
                                         <label>Birth Date</label>
                                         <div class="row">
                                             
@@ -311,9 +331,17 @@ alert('User already registered. Please try again');
                                         <br />
                                         <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
                                         
-                                        <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" name="signup" id="signup">Create my account</button>
+                                        <a href="#" class="btn btn-lg btn-danger btn-block signup-btn notif">Create my account</a>
+                                        <div class="popup_box_notif modal-fade">
+                                            <i class="fas fa-exclamation"></i>
+                                            <h5 style="color: black">Patient ID:</h5>
+                                            <input id="idgen" type="text" name="icPatient" value="" class="form-control input-lg" placeholder="Patient ID"/>
+                                            <label>Do you acknowledge this?</label>
+                                            <div class="close">
+                                                <button class=" close-btn signup-btn"name="signup" id="signup" type="submit">I acknowledge</button>
+                                            </div>
+                                        </div>
                                     </form>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -321,85 +349,16 @@ alert('User already registered. Please try again');
                 </div>
             </div>
         </div>
-        <!-- modal end -->
-        <!-- modal container end -->
-
-        <!-- 1st section start -->
-        <section id="promo-1" class="content-block promo-1 min-height-600px bg-offwhite">
+        <section class="content-block promo-1 min-height-600px bg-offwhite">
             <div class="container1">
                 <div class="row">
                     <div class="col-md-5">
                         <h2>START YOUR THERAPY TODAY!</h2>
-                        <p>This is Therapist's Schedule. Please <span class="label label-danger">login</span> to make an appointment. </p>
-                            
-                        <!-- date textbox -->
-                       
-                        <div class="input-group" style="margin-bottom:10px;">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar">
-                                </i>
-                            </div>
-                            <input class="form-control" id="date" name="date" value="<?php echo date("Y-m-d")?>" onchange="showUser(this.value)"/>
-                        </div>
-                       
-                        <!-- date textbox end -->
-
-                        <!-- script start -->
-                        <script>
-                            function showUser(str) {
-                                
-                                if (str == "") {
-                                    document.getElementById("txtHint").innerHTML = "";
-                                    return;
-                                } else { 
-                                    if (window.XMLHttpRequest) {
-                                        // code for IE7+, Firefox, Chrome, Opera, Safari
-                                        xmlhttp = new XMLHttpRequest();
-                                    } else {
-                                        // code for IE6, IE5
-                                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                                    }
-                                    xmlhttp.onreadystatechange = function() {
-                                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                                            document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                                        }
-                                    };
-                                    xmlhttp.open("GET","getuser.php?q="+str,true);
-                                    console.log(str);
-                                    xmlhttp.send();
-                                }
-                            }
-                        </script>
-                        
-                        <!-- script start end -->
-                     
-                        <!-- table appointment start -->
-                        <div id="txtHint"><b> </b></div>
-                        
-                        <!-- table appointment end -->
+                        <p style="color: white;">This is Therapist's Schedule. Please <span class="label label-danger">login</span> to make an appointment. </p>
                     </div>
-                    <!-- /.col -->
-                   <!--  <div class="col-md-6 col-md-offset-1">
-                        <div class="video-wrapper">
-                            <iframe width="560" height="315" src="http://www.youtube.com/embed/FEoQFbzLYhc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div> -->
-                    <!-- /.col -->
                 </div>
-                <!-- /.row -->
             </div>
         </section>
-        <!-- first section end -->
-
-        
-        <!-- second section start -->
-        
-        <!-- second section end -->
-        <!-- third section start -->
-        
-        <!-- third section end -->
-        <!-- forth sections start -->
-        
         <div class="service-section">
             <h2 id="ourservices">Our Services</h2>
             <div class="inner-service-section">
@@ -412,29 +371,22 @@ alert('User already registered. Please try again');
             </div>
 
         </div>
-            <!-- /.container -->
-        <!-- forth section end -->
-        <!-- footer start -->
         <div class="main-footer">
             <div class="inner-footer">
-                <h2>SOCIAL MEDIA</h2>
-                <i class="fab fa-instagram"><a href="#">   DPTC Davao</a></i>
-                <i class="fab fa-facebook-f"><a href="#">   Dynamic Process Therapy Clinic</a></i>
-                <i class="fab fa-google" aria-hidden="true">   dynamicprocesstherapycenter@gmail.com</i>
+                <p>DYNAMIC PROCESS THERAPY CENTER</p>
             </div>
-
-            <div class="inner-footer">
-                <h2>ABOUT</h2>
-                
+            <div class="inner-footer" style="display: flex; justify-content:right;">
+                <i class="fa-brands fa-instagram-square"><a href="#"> </a></i>
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fab fa-google" aria-hidden="true"> </i>
             </div>
         </div>
         <div class="copyright-bar bg-black">
             <div class="container">
-                <p class="pull-left small">©T&T SOLUTIONS</p>
-                <p class="pull-right small"><a href="adminlogin.php">For Doctors Click Here!</a></p>
+                <p class="small" style="text-align: center;">©T&T SOLUTIONS</p>
+                
             </div>
         </div>
-        <!-- footer end -->
     </div>
 
     <script src="asset/js/jquery.js"></script>
@@ -448,23 +400,39 @@ alert('User already registered. Please try again');
     $('#myInput').focus()
     })
     </script>
- 
-<script>
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'yyyy-mm-dd',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
+    <script>
+        $(document).ready(function(){
+            var date_input=$('input[name="date"]'); //our date input has the name "date"
+            var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            date_input.datepicker({
+                format: 'yyyy-mm-dd',
+                container: container,
+                todayHighlight: true,
+                autoclose: true,
+            })
+
         })
 
-    })
+    </script>
+    <script>
+        var num = Math.floor(Math.random() * 1000000) + 1;
+        document.getElementById("id_gen").value = num;
+        document.getElementById("idgen").value = num;
+    </script>
+    <script>
+        var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
 
-</script>
+        function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+        }
 
-    <!-- date end -->
-   
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
 </body>
 </html>

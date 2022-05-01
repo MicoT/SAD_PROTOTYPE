@@ -1,0 +1,132 @@
+#main {
+    background: linear-gradient(-45deg, #a72222, #6d1111de, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 1vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.popup_box_disclaimer{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 5px;
+}
+.popup_box_disclaimer{
+width: 400px;
+background: #f2f2f2;
+text-align: center;
+align-items: center;
+padding: 50px;
+border: 1px solid #b3b3b3;
+box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+z-index: 9999;
+display: none;
+}
+.popup_box_disclaimer i{
+font-size: 60px;
+color: #eb9447;
+border: 5px solid #eb9447;
+padding: 20px 40px;
+border-radius: 50%;
+margin: -10px 0 20px 0;
+}
+.popup_box_disclaimer h1{
+font-size: 30px;
+color: #1b2631;
+margin-bottom: 5px;
+}
+.popup_box_disclaimer label{
+font-size: 23px;
+color: #404040;
+}
+.popup_box_notif .confirm{
+margin: 40px 0 0 0;
+}
+.confirm .confirm-btn{
+background: #999999;
+color: white;
+font-size: 18px;
+border-radius: 5px;
+border: 1px solid #808080;
+padding: 10px 13px;
+}
+.confirm .confirm-btn{
+margin-left: 20px;
+background: #ff3333;
+border: 1px solid #cc0000;
+}
+.confirm :hover{
+transition: .5s;
+background: #8c8c8c;
+}
+.confirm .confirm-btn:hover{
+transition: .5s;
+background: #e60000;
+}
+
+.popup_box_notif{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 5px;
+}
+.popup_box_notif{
+width: 400px;
+background: #f2f2f2;
+text-align: center;
+align-items: center;
+padding: 40px;
+border: 1px solid #b3b3b3;
+box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+z-index: 9999;
+display: none;
+}
+.popup_box_notif i{
+font-size: 60px;
+color: #eb9447;
+border: 5px solid #eb9447;
+padding: 20px 40px;
+border-radius: 50%;
+margin: -10px 0 20px 0;
+}
+.popup_box_notif h1{
+font-size: 30px;
+color: #1b2631;
+margin-bottom: 5px;
+}
+.popup_box_notif label{
+font-size: 23px;
+color: #404040;
+}
+.popup_box_notif .close{
+margin: 40px 0 0 0;
+}
+.close .close-btn{
+color: white;
+font-size: 18px;
+border-radius: 5px;
+padding: 10px 13px;
+}
+.close .close-btn{
+margin-left: 20px;
+background: #ff3333;
+border: 1px solid #cc0000;
+}
+
+.close .close-btn:hover{
+transition: .5s;
+background: #e60000;
+}

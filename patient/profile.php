@@ -70,16 +70,45 @@ $widowed = "checked";
 		<link href="assets/css/date/bootstrap-datepicker3.css" rel="stylesheet">
 		<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
 		<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
-		<!--Font Awesome (added because you use icons in your prepend/append)-->
-		<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-		<!-- <link href="assets/css/material.css" rel="stylesheet"> -->
+		<link rel="stylesheet" href="assets/css/mycss.css">
+		<script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
+		<!-- favicon  -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+        <link rel="manifest" href="assets/img/site.webmanifest">
 	</head>
-	<body>
+	<style>
+            html{
+
+            }
+            #main {
+                background: linear-gradient(-45deg, #a72222, #6d1111de, #23a6d5, #23d5ab);
+                background-size: 400% 400%;
+                animation: gradient 15s ease infinite;
+                height: 1vh;
+            }
+
+            @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        </style>
+	<body id="main">
 		
 		<!-- navigation -->
-		<nav class="navbar navbar-default " role="navigation">
-			<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid" style="background-color: white;">
 				<!-- Brand and toggle get grouped for better mobile display -->
+				<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.jpg" height="80px"></a>
+				<a href="#" id="logo"><span>Dynamic</span> Process</a>
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span>
@@ -87,7 +116,6 @@ $widowed = "checked";
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.png" height="40px"></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -107,7 +135,7 @@ $widowed = "checked";
 									<a href="profile.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa fa-fw fa-user"></i> Profile</a>
 								</li>
 								<li>
-									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="glyphicon glyphicon-file"></i> Appointment</a>
+									<a href="patientapplist.php?patientId=<?php echo $userRow['icPatient']; ?>"><i class="fa-solid fa-file"></i> Appointment</a>
 								</li>
 								<li class="divider"></li>
 								<li>
@@ -122,26 +150,12 @@ $widowed = "checked";
 		<!-- navigation -->
 		
 		<div class="container">
-			<section style="padding-bottom: 50px; padding-top: 50px;">
+			<section style="padding-bottom: 50px; padding-top: 50px; margin-top:10rem;">
 				<div class="row">
 					<!-- start -->
 					<!-- USER PROFILE ROW STARTS-->
 					<div class="row">
-						<div class="col-md-3 col-sm-3">
-							
-							<div class="user-wrapper">
-								<img src="assets/img/1.jpg" class="img-responsive" />
-								<div class="description">
-									<h4><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></h4>
-									<h5> <strong> Website Designer </strong></h5>
-									<p>
-										Pellentesque elementum dapibus convallis.
-									</p>
-									<hr />
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
-								</div>
-							</div>
-						</div>
+						
 						
 						<div class="col-md-9 col-sm-9  user-wrapper">
 							<div class="description">
@@ -154,32 +168,26 @@ $widowed = "checked";
 										
 										<table class="table table-user-information" align="center">
 											<tbody>
-												
-												
 												<tr>
-													<td>PatientMaritialStatus</td>
-													<td><?php echo $userRow['patientMaritialStatus']; ?></td>
-												</tr>
-												<tr>
-													<td>PatientDOB</td>
+													<td>Patient DOB</td>
 													<td><?php echo $userRow['patientDOB']; ?></td>
 												</tr>
 												<tr>
-													<td>PatientGender</td>
+													<td>Patient Gender</td>
 													<td><?php echo $userRow['patientGender']; ?></td>
 												</tr>
 												<tr>
-													<td>PatientAddress</td>
+													<td>Patient Address</td>
 													<td><?php echo $userRow['patientAddress']; ?>
 													</td>
 												</tr>
 												<tr>
-													<td>PatientPhone</td>
+													<td>Patient Phone</td>
 													<td><?php echo $userRow['patientPhone']; ?>
 													</td>
 												</tr>
 												<tr>
-													<td>PatientEmail</td>
+													<td>Patient Email</td>
 													<td><?php echo $userRow['patientEmail']; ?>
 													</td>
 												</tr>
@@ -189,11 +197,9 @@ $widowed = "checked";
 								</div>
 								
 							</div>
-							
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Update Profile</button>
 						</div>
 					</div>
-					<!-- USER PROFILE ROW END-->
-					<!-- end -->
 					<div class="col-md-4">
 						
 						<!-- Large modal -->
@@ -204,7 +210,7 @@ $widowed = "checked";
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+										<h4 class="modal-title" id="myModalLabel">Update Information</h4>
 									</div>
 									<div class="modal-body">
 										<!-- form start -->
@@ -225,26 +231,6 @@ $widowed = "checked";
 													</tr>
 													
 													<!-- radio button -->
-													<tr>
-														<td>Maritial Status:</td>
-														<td>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="single" <?php echo $single; ?>>Single</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="married" <?php echo $married; ?>>Married</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="separated" <?php echo $separated; ?>>Separated</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="divorced" <?php echo $divorced; ?>>Divorced</label>
-															</div>
-															<div class="radio">
-																<label><input type="radio" name="patientMaritialStatus" value="widowed" <?php echo $widowed; ?>>Widowed</label>
-															</div>
-														</td>
-													</tr>
 													<!-- radio button end -->
 													<tr>
 														<td>DOB</td>
@@ -291,16 +277,11 @@ $widowed = "checked";
 													</tr>
 													<tr>
 														<td>
-															<input type="submit" name="submit" class="btn btn-info" value="Update Info"></td>
+															<input type="submit" name="submit" class="btn btn-danger" value="Update Info"></td>
 														</tr>
 													</tbody>
-													
 												</table>
-												
-												
-												
 											</form>
-											<!-- form end -->
 										</div>
 										
 									</div>
@@ -308,13 +289,9 @@ $widowed = "checked";
 							</div>
 							<br /><br/>
 						</div>
-						
 					</div>
-					<!-- ROW END -->
 				</section>
-				<!-- SECTION END -->
 			</div>
-			<!-- CONATINER END -->
 			<script src="assets/js/jquery.js"></script>
 			<script src="assets/js/bootstrap.min.js"></script>
 			

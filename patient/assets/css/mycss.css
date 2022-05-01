@@ -21,15 +21,14 @@ nav #logo span{
 
 .container-fluid {
     padding-top: 10px;
-    padding-bottom: 10px;
-    
+    padding-bottom: 10px;  
 }
 .form-control{
     background-color: aliceblue;
 }
 .service-section{
     padding: 2rem 7%;
-    background: linear-gradient(#a72222, #6d1111de);
+    background: linear-gradient(#a72222, #6d1111de, rgb(101, 3, 3));
     min-height: 50vh;
 }
 #ourservices{

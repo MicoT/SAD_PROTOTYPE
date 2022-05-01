@@ -15,14 +15,14 @@ die("Error running $sql: " . mysqli_error());
     <body>
         <?php
         if (mysqli_num_rows($res)==0) {
-        echo "<div class='alert alert-danger' role='alert'>Doctor is not available at the moment. Please try again later.</div>";
+        echo "<div class='alert alert-danger' role='alert' style='color: black; margin-right: 290px;'>No available schedule for this day!</div>";
         
         } else {
-        echo "   <table class='table table-hover'>";
+        echo "   <table class='table table-hover' style='background-color:white;'>";
             echo " <thead>";
                 echo " <tr>";
                     echo " <th>App Id</th>";
-                    echo " <th>Day</th>";
+                    echo " <th>Therapist</th>";
                     echo " <th>Date</th>";
                     echo "  <th>Start Time</th>";
                     echo "  <th>End Time</th>";
