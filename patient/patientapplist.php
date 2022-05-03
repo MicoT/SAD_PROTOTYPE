@@ -20,22 +20,33 @@ $res=mysqli_query($con, "SELECT a.*, b.*,c.* FROM patient a
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>Make Appoinment</title>
-		<!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet"> -->
 		<link href="assets/css/material.css" rel="stylesheet">
-		
 		<link href="assets/css/default/style.css" rel="stylesheet">
 		<link href="assets/css/default/blocks.css" rcel="stylesheet">
 		<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="assets/css/mycss.css">
 		<script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
-
 		<!-- favicon  -->
         <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
         <link rel="manifest" href="assets/img/site.webmanifest">
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+			*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			}
+
+			body{
+			background-image: url("assets/img/repeat.jpg");
+			font-family: 'Josefin Sans', sans-serif;
+			overflow-x: hidden;
+			}
+		</style>
 	</head>
 	<body >
 		<!-- navigation -->
@@ -94,17 +105,18 @@ echo "<h1>Your appointment list. </h1>";
 echo "</div>";
 echo "<div class='panel panel-primary'>";
 echo "<div class='panel-heading' style='background-color:red;'>List of Appointment</div>";
-echo "<div class='panel-body'>";
+echo "<div class='panel-body' style='overflow-x:auto;'>";
 echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>";
 echo "<th>App Id</th>";
-echo "<th>patientIc </th>";
-echo "<th>patientLastName </th>";
-echo "<th>scheduleDay </th>";
+echo "<th>Patient ID </th>";
+echo "<th>Patient LastName </th>";
+echo "<th>Therapist </th>";
 echo "<th>scheduleDate </th>";
 echo "<th>startTime </th>";
 echo "<th>endTime </th>";
+echo "<th>branch </th>";
 echo "<th>Print </th>";
 echo "</tr>";
 echo "</thead>";
@@ -131,6 +143,7 @@ echo "<td>" . $userRow['scheduleDay'] . "</td>";
 echo "<td>" . $userRow['scheduleDate'] . "</td>";
 echo "<td>" . $userRow['startTime'] . "</td>";
 echo "<td>" . $userRow['endTime'] . "</td>";
+echo "<td>" . $userRow['Branch'] . "</td>";
 echo "<td><a href='invoice.php?appid=".$userRow['appId']."' target='_blank'><span class='fa-solid fa-print' aria-hidden='true' style='color:red;'></span></a> </td>";
 }
 

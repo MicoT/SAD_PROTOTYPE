@@ -1,9 +1,6 @@
 <?php
 include_once 'asset/conn/dbconnect.php';
-// include_once 'assets/conn/server.php';
 ?>
-
-
 <!-- login -->
 <!-- check session -->
 <?php
@@ -55,23 +52,8 @@ $query = " INSERT INTO patient (  icPatient, password, patientFirstName, patient
 VALUES ( '$icPatient', '$password', '$patientFirstName', '$patientLastName', '$patientDOB', '$patientGender', '$patientEmail' ) ";
 $result = mysqli_query($con, $query);
 // echo $result;
-if( $result )
-{
-?>
-<script type="text/javascript">
-alert('Register Succesful!');
-</script>
-<?php
-}
-else
-{
-?>
-<script type="text/javascript">
-alert('User already registered. Please try again');
-</script>
-<?php
-}
-
+header("location: index.php");
+exit;
 }
 ?>
 <!DOCTYPE html>
@@ -83,9 +65,10 @@ alert('User already registered. Please try again');
         <title>Dynamic Center Therapy Center</title>
         <link href="asset/css/style.css" rel="stylesheet">
         <link href="asset/css/style1.css" rel="stylesheet">
-        <link href="/asset/css/blocks.css" rel="stylesheet">
+        <link href="asset/css/blocks.css" rel="stylesheet">
         <link rel="stylesheet" href="asset/css/pop-up-box.css">
         <link rel="stylesheet" href="asset/css/mycss.css">
+        <link rel="stylesheet" href="asset/css/slideshow.css">
         <link href="asset/css/date/bootstrap-datepicker.css" rel="stylesheet">
         <link href="asset/css/date/bootstrap-datepicker3.css" rel="stylesheet">
         <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
@@ -97,9 +80,6 @@ alert('User already registered. Please try again');
         <link rel="icon" type="image/png" sizes="32x32" href="asset/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="asset/img/favicon-16x16.png">
         <link rel="manifest" href="asset/img/site.webmanifest">
-        <style>
-
-        </style>
         <script>
         $(document).ready(function(){
             $('.click').click(function(){
@@ -115,9 +95,17 @@ alert('User already registered. Please try again');
             $('.popup_box_notif').css("display", "none");
             });
         });
-
-
     </script>
+    <style>
+        .inner-service-section ul {
+            columns: 3;
+            -webkit-columns: 3;
+            -moz-columns: 3;
+            }
+        .inner-service-section ul li{
+            color: white;
+        }
+    </style>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -201,21 +189,21 @@ alert('User already registered. Please try again');
                                         <h4 style="color: black">It's free and always will be.</h4>
                                         <div class="row">
                                             <div class="col-xs-6 col-md-6">
-                                                <input type="text" name="patientFirstName" value="" class="form-control input-lg" placeholder="First Name" required />
+                                                <input type="text" name="patientFirstName" value="" class="form-control input-lg" placeholder="First Name" required onkeydown="return /[a-z]/i.test(event.key)" />
                                             </div>
                                             <div class="col-xs-6 col-md-6">
-                                                <input type="text" name="patientLastName" value="" class="form-control input-lg" placeholder="Last Name" required />
+                                                <input type="text" name="patientLastName" value="" class="form-control input-lg" placeholder="Last Name" required  onkeydown="return /[a-z]/i.test(event.key)"/>
                                             </div>
                                         </div>
                                         
-                                        <input type="text" name="patientEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
+                                        <input type="email" name="patientEmail" value="" class="form-control input-lg" placeholder="Your Email"  required/>
                                         <h5 style="color: black">Patient ID:</h5>
                                         <input id="id_gen" type="text" name="icPatient" value="" class="form-control input-lg idpatient" style="color:black;" placeholder="Patient ID" readonly/>
                                         
                                         
-                                        <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password" id="password"  required/>
+                                        <input type="password" name="password" value="" class="form-control input-lg" placeholder="Password" id="password"  required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
                                         
-                                        <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" id="confirm_password"  required/>
+                                        <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder="Confirm Password" id="confirm_password"  required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
                                         <label>Birth Date</label>
                                         <div class="row">
                                             
@@ -332,13 +320,12 @@ alert('User already registered. Please try again');
                                         <span class="help-block">By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use.</span>
                                         
                                         <a href="#" class="btn btn-lg btn-danger btn-block signup-btn notif">Create my account</a>
-                                        <div class="popup_box_notif modal-fade">
+                                        <div class="popup_box_notif modal-fade" style="position:fixed;">
                                             <i class="fas fa-exclamation"></i>
-                                            <h5 style="color: black">Patient ID:</h5>
+                                            <h5 style="color: black">Registration Successful! Please remember your patient id so that you can login.</h5>
                                             <input id="idgen" type="text" name="icPatient" value="" class="form-control input-lg" placeholder="Patient ID"/>
-                                            <label>Do you acknowledge this?</label>
                                             <div class="close">
-                                                <button class=" close-btn signup-btn"name="signup" id="signup" type="submit">I acknowledge</button>
+                                                <button class=" close-btn signup-btn"name="signup" id="signup" type="submit" onclick="myFunction()">Copy to clipboard and procced.</button>
                                             </div>
                                         </div>
                                     </form>
@@ -349,10 +336,10 @@ alert('User already registered. Please try again');
                 </div>
             </div>
         </div>
-        <section class="content-block promo-1 min-height-600px bg-offwhite">
+        <section class="content-block promo-1 bg-offwhite" style="min-height: 900px;">
             <div class="container1">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-5" style="position: absolute; top:60rem; background-color:brown; border-radius:10px;">
                         <h2>START YOUR THERAPY TODAY!</h2>
                         <p style="color: white;">This is Therapist's Schedule. Please <span class="label label-danger">login</span> to make an appointment. </p>
                     </div>
@@ -366,10 +353,56 @@ alert('User already registered. Please try again');
                     <i class="fas fa-user-friends"></i>
                 <h2>Occupational and Speech Therapy</h2>
                 <p>We offer both occupational and speech therapy for children and elders a like in a well created environment.</p>
+                <ul>
+                    <li>Early Intervention</li>
+                    <li>Parental Education</li>
+                    <li>Handwriting</li>
+                    <li>Oral Motor</li>
+                    <li>Social Skills Training</li>
+                    <li>Sensory Integration</li>
+                    <li>Fine Motor</li>
+                    <li>Gross Motor</li>
+                    <li>Self Care</li>
+                    <li>Feeding</li>
+                    <li>... and so much more!</li>
+                </ul>
                 </div>
-                
             </div>
+        </div>
+        <div class="slideshow-container">
+        <!-- Full-width slides/quotes -->
+        <div class="mySlides">
+        <h2 id="ourservices">Our Facilities</h2>
+        <img src="asset/img/store-2.jpg" alt="">
+        </div>
 
+        <div class="mySlides">
+        <h2 id="ourservices">Our Facilities</h2>
+        <img src="asset/img/store-3.jpg" alt="">
+        </div>
+
+        <div class="mySlides">
+        <h2 id="ourservices">Our Facilities</h2>
+        <img src="asset/img/store-4.jpg" alt="">
+        </div>
+
+        <div class="mySlides">
+        <h2 id="ourservices">Our Facilities</h2>
+        <img src="asset/img/store-5.jpg" alt=""> 
+        </div>
+
+        <!-- Next/prev buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <!-- Dots/bullets/indicators -->
+        <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
         </div>
         <div class="main-footer">
             <div class="inner-footer">
@@ -433,6 +466,42 @@ alert('User already registered. Please try again');
 
         password.onchange = validatePassword;
         confirm_password.onkeyup = validatePassword;
+
+        function myFunction() {
+
+        var copyText = document.getElementById("idgen");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        }
+    </script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+            }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        }
     </script>
 </body>
 </html>

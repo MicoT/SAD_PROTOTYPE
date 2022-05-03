@@ -43,119 +43,99 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
 
 		<style>
-            html{
+            @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
 
-            }
-            #main {
-				position: fixed;
-                background: linear-gradient(-45deg, #a72222, #6d1111de, #23a6d5, #23d5ab);
-                background-size: 900% 900%;
-				translate: (-50%, -50%);
-                animation: gradient 15s ease infinite;
-                height: 1vh;
-            }
+			*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			}
 
-            @keyframes gradient {
-                0% {
-                    background-position: 0% 50%;
-                }
-                50% {
-                    background-position: 100% 50%;
-                }
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-            .wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            background: rgb(223, 215, 215);
-            margin: 10px auto;
-            padding: 5px 30px;
-            width: 800px;
-            box-shadow: 0 0 5px black;
-            }
+			body{
+			background-image: url("assets/img/repeat.jpg");
+			font-family: 'Josefin Sans', sans-serif;
+			overflow-x: hidden;
+			}
 
-            .hr {
-            display: flex;
-            align-items: center;
-            }
+			.wrapper{
+			margin-top: 10%;
+			}
 
-            hr {
-            width: 30px;
-            height: 1px;
-            background: black;
-            margin: 0 15px;
-            }
+			.next{
+			margin-top: 5%;
+			padding-bottom: 10%;
+			}
 
-            h2 {
-            font-size: 25px;
-            font-weight: normal;
-            text-transform: uppercase;
-            }
+			.wrapper h1{
+			
+			font-size: 52px;
+			margin-bottom: 60px;
+			text-align: center;
+			
+			border-radius: 10px;
+			padding: 10px;
+			margin-left: 650px;
+			margin-right: 650px;
+			color: red;
+			}
 
-            .mission-txt {
-            font-size: 18px;
-            font-weight: 500px;
-            font-style: italic;
-            margin-top: 0;
-            }
+			.team{
+			display: flex;
+			justify-content: center;
+			width: auto;
+			text-align: center;
+			flex-wrap: wrap;
+			}
 
-            div img {
-            width: 150px;
-            filter: drop-shadow(0 10px 5px black);
-            }
+			.team .team_member{
+			border: solid;
+			background: #fff;
+			margin: 5px;
+			margin-bottom: 50px;
+			width: 300px;
+			padding: 20px;
+			line-height: 20px;
+			color: #8e8b8b;  
+			position: relative;
+			}
 
-            p {
-            text-align: justify;
-            }
+			.team .team_member h3{
+			color: black;
+			font-size: 26px;
+			margin-top: 50px;
+			}
 
-            .faculties {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            }
+			.team .team_member p.role{
+			color: red;
+			margin: 12px 0;
+			font-size: 12px;
+			text-transform: uppercase;
+			}
 
-            .unit {
-            margin: 25px;
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            }
+			.team .team_member .team_img{
+			position: absolute;
+			top: -50px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background: #fff;
+			}
 
-            .unit img {
-            border-radius: 100px;
-            width: 150px;
-            height: 150px;
-            margin-bottom: 10px;
-            }
-
-            .unit p {
-            text-align: left;
-            margin: 2px;
-            }
-
-            .unit p:first-of-type {
-            font-weight: bolder;
-            margin-bottom: 5px;
-            }
-
-            @media screen and (max-width:820px) {
-            .wrapper {
-                width: 80%;
-                padding: 5px 30px;
-            }
-            }
+			.team .team_member .team_img img{
+			width: 100px;
+			height: 100px;
+			padding: 5px;
+			border-radius: 50%;
+			border: solid;
+			}
         </style>
 		
 	</head>
 	<body >
-		
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0" nonce="v51P6Yn2"></script>	
 		<!-- navigation -->
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid">
@@ -203,64 +183,83 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		</nav>
 		<!-- navigation -->
 		
-		<!-- 1st section start -->
-		<div id="main" class="content-block" style="min-height: 750px; background-color:aqua;">
-			<div class="container">
-				
-            <div class="hr">
-        <hr>
-        <h2>Our Mission</h2>
-        <hr>
-      </div>
-
-      <p class="mission-txt">"To Provide Quality Education at Low Cost"</p>
-
-    </div>
-
-    <div class="wrapper">
-      <h2>About</h2>
-      <div>
-        <img src="https://vidyasheela.com/web-contents/website-components/About-Us-Pages/responsive-about-us-page-html/teaching.png" alt="img">
-        <p>A school is an educational institution designed to provide learning spaces and learning environments for the teaching of students under the direction of teachers. Most countries have systems of formal education, which is sometimes compulsory.
-          teenagers who have completed primary education. An institution where higher education is taught, is commonly called a university college or university. </p>
-        <p>A school is an educational institution designed to provide learning spaces and learning environments for the teaching of students under the direction of teachers. Most countries have systems of formal education, which is sometimes compulsory.
-          teenagers who have completed primary education. An institution where higher education is taught, is commonly called a university college or university. </p>
-
-      </div>
-    </div>
-
-    <div class="wrapper">
-      <h2>Faculties</h2>
-      <div class="faculties">
-        <div class="unit">
-          <img src="https://vidyasheela.com/web-contents/website-components/About-Us-Pages/responsive-about-us-page-html/Director.jpg" alt="">
-          <p>Jona Chen, Director</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus unde aliquid laborum voluptatum distinctio nobis?'</p>
-
-        </div>
-        <div class="unit">
-          <img src="https://vidyasheela.com/web-contents/website-components/About-Us-Pages/responsive-about-us-page-html/Principal.jpg" alt="">
-          <p>Mathew Tram, Principal</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus unde aliquid laborum voluptatum distinctio nobis?'</p>
-
-        </div>
-        <div class="unit">
-          <img src="https://vidyasheela.com/web-contents/website-components/About-Us-Pages/responsive-about-us-page-html/vice-principal.jpg" alt="">
-          <p>Lawn Sethi, Vice Principal</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus unde aliquid laborum voluptatum distinctio nobis?'</p>
-        </div>
-      </div>
-    </div>
-
-				<!-- /.row -->
+		<div class="wrapper row" style="">
+		<h1>	Bangkal Branch</h1>
+		<div class="team">
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Meg Saavedra</h3>
+			<p class="role">OTRP (Head/ Owner)</p>
+			</div>
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Allysha Arranguez</h3>
+			<p class="role">OTRP (Junior OT staff) </p>
+			</div>
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Vannesa Abueva</h3>
+			<p class="role">OTRP (Junior OT staff) </p>
 			</div>
 		</div>
-		<!-- first section end -->
-		<!-- forth sections start -->
-		
-		<!-- forth section end -->
-		
-		<!-- footer start -->
+		</div>	
+		<div class="wrapper row next">
+		<div class="team">
+		<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Rachelle Sereno</h3>
+			<p class="role">Secretary</p>
+			</div>
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Gwayne Mosquida</h3>
+			<p class="role">OTRP (OT staff)</p>
+			</div>
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Micah Superio</h3>
+			<p class="role">LPT (Sped staff)</p>
+			</div>
+		</div>
+		</div>	
+		<div class="wrapper row next" style="">
+		<h1>Toril Branch</h1>
+		<div class="team">
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Nikki Militar</h3>
+			<p class="role">OT Staff</p>
+			</div>
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Cecil Tabanao</h3>
+			<p class="role">Secretary</p>
+			</div>
+			<div class="team_member">
+			<div class="team_img">
+				<img src="assets/img/none.webp" alt="Team_image">
+			</div>
+			<h3>Catherine Santos</h3>
+			<p class="role">OTRP (OT staff)</p>
+			</div>
+		</div>
+		</div>
 		<div class="copyright-bar bg-black foot" style="position: fixed;">
 			<div class="container">
 				<p class="small" style="display:flex;justify-content:center">© T&T SOLUTIONS</p>

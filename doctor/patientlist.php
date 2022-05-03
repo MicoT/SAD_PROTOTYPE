@@ -94,7 +94,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     <th><input type="text" class="form-control" placeholder="ContactNo." disabled></th>
                                     <!-- <th><input type="text" class="form-control" placeholder="Email" disabled></th> -->
                                     <th><input type="text" class="form-control" placeholder="Gender" disabled></th>
-                                    <th><input type="text" class="form-control" placeholder="Status" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Guardian" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Birthdate" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Address" disabled></th>
                                 </tr>

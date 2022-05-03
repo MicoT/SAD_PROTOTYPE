@@ -1,3 +1,9 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-size:0;
+    background-color: #822525;
+}
 :root{
     --fontcolor:#f83939;
     --backgroundcolor:#34d3b4;
@@ -18,9 +24,7 @@ nav #logo{
 nav #logo span{
     color: var(--fontcolor);
 }
-img {
 
-}
 .container-fluid {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -31,7 +35,7 @@ img {
 }
 .service-section{
     padding: 2rem 7%;
-    background: linear-gradient(#a72222, #6d1111de);
+    background: linear-gradient(#822525, #380c0cde);
     min-height: 50vh;
 }
 #ourservices{
@@ -50,7 +54,8 @@ img {
 .service-box{
     flex: 1 1 200px;
     padding: 5rem 0;
-    box-shadow: 0 2rem 2rem rgba(0, 0, 0, .1);
+    background: linear-gradient(#af3939, #380c0cde);
+    box-shadow: 0 2rem 2rem rgba(12, 8, 8, 0.1);
 }
 .service-box i{
     color: white;
@@ -115,4 +120,3 @@ img {
 .but{
     background-color: #f83939;
 }
-  

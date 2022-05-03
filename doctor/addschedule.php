@@ -18,10 +18,10 @@ $scheduleday  = mysqli_real_escape_string($con,$_POST['scheduleday']);
 $starttime     = mysqli_real_escape_string($con,$_POST['starttime']);
 $endtime     = mysqli_real_escape_string($con,$_POST['endtime']);
 $bookavail         = mysqli_real_escape_string($con,$_POST['bookavail']);
-
+$branch = mysqli_real_escape_string($con,$_POST['branch']);
 //INSERT
-$query = " INSERT INTO doctorschedule (  scheduleDate, scheduleDay, startTime, endTime,  bookAvail)
-VALUES ( '$date', '$scheduleday', '$starttime', '$endtime', '$bookavail' ) ";
+$query = " INSERT INTO doctorschedule (  scheduleDate, scheduleDay, startTime, endTime,  bookAvail, branch)
+VALUES ( '$date', '$scheduleday', '$starttime', '$endtime', '$bookavail', '$branch' ) ";
 
 $result = mysqli_query($con, $query);
 // echo $result;
@@ -41,7 +41,8 @@ alert('Added fail. Please try again.');
 </script>
 <?php
 }
-
+header("location: addschedule.php");
+exit;
 }
 ?>
 
@@ -227,6 +228,24 @@ alert('Added fail. Please try again.');
                                    </select>
                                   </div>
                                  </div>
+                                 <div class="form-group form-group-lg">
+                                  <label class="control-label col-sm-2 requiredField" for="branch">
+                                   Branch
+                                   <span class="asteriskField">
+                                    *
+                                   </span>
+                                  </label>
+                                  <div class="col-sm-10">
+                                   <select class="select form-control" id="branch" name="branch">
+                                    <option value="Toril">
+                                    Toril
+                                    </option>
+                                    <option value="Bangkal">
+                                     Bangkal
+                                    </option>
+                                   </select>
+                                  </div>
+                                 </div>
                                  <div class="form-group">
                                   <div class="col-sm-10 col-sm-offset-2">
                                    <button class="btn btn-primary " name="submit" type="submit">
@@ -269,6 +288,7 @@ alert('Added fail. Please try again.');
                                     <th><input type="text" class="form-control" placeholder="Start Time." disabled></th>
                                     <th><input type="text" class="form-control" placeholder="EndTime" disabled></th>
                                     <th><input type="text" class="form-control" placeholder="Status" disabled></th>
+                                    <th><input type="text" class="form-control" placeholder="Branch" disabled></th>
                                 </tr>
                             </thead>
                             
@@ -288,6 +308,7 @@ alert('Added fail. Please try again.');
                                     echo "<td>" . $doctorschedule['startTime'] . "</td>";
                                     echo "<td>" . $doctorschedule['endTime'] . "</td>";
                                     echo "<td>" . $doctorschedule['bookAvail'] . "</td>";
+                                    echo "<td>" . $doctorschedule['Branch'] . "</td>";
                                     echo "<form method='POST'>";
                                     echo "<td class='text-center'><a href='#' id='".$doctorschedule['scheduleId']."' class='delete'><i class='fa-solid fa-trash'></i></a>
                             </td>";

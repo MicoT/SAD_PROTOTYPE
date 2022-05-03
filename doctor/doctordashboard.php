@@ -143,15 +143,6 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                     $icon='<i class="fa-solid fa-check"></i>';
                                     $checked = 'disabled';
                                 }
-
-                                
-                              
-                                
-                             
-                                
-
-                                
-
                                 echo "<tbody>";
                                 echo "<tr class='$status'>";
                                     echo "<td>" . $appointment['patientIc'] . "</td>";
@@ -195,45 +186,39 @@ function chkit(uid, chk) {
    req.send(null);
 }
 </script>
-
-
- 
                 </div>
                 <!-- /.container-fluid -->
             </div>
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->
-
-
-       
         <!-- jQuery -->
         <script src="../patient/assets/js/jquery.js"></script>
         <script type="text/javascript">
-$(function() {
-$(".delete").click(function(){
-var element = $(this);
-var appid = element.attr("id");
-var info = 'id=' + appid;
-if(confirm("Are you sure you want to delete this?"))
-{
- $.ajax({
-   type: "POST",
-   url: "deleteappointment.php",
-   data: info,
-   success: function(){
- }
-});
-  $(this).parent().parent().fadeOut(300, function(){ $(this).remove();});
- }
-return false;
-});
-});
-</script>
+        $(function() {
+        $(".delete").click(function(){
+        var element = $(this);
+        var appid = element.attr("id");
+        var info = 'id=' + appid;
+        if(confirm("Are you sure you want to delete this?"))
+        {
+        $.ajax({
+        type: "POST",
+        url: "deleteappointment.php",
+        data: info,
+        success: function(){
+        }
+        });
+        $(this).parent().parent().fadeOut(300, function(){ $(this).remove();});
+        }
+        return false;
+        });
+        });
+        </script>
         <!-- Bootstrap Core JavaScript -->
         <script src="../patient/assets/js/bootstrap.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-         <!-- script for jquery datatable start-->
+        <!-- script for jquery datatable start-->
         <script type="text/javascript">
             /*
             Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !

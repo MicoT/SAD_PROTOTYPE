@@ -79,7 +79,21 @@ header("Location: patient/patient.php");
         <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
         <link rel="manifest" href="assets/img/site.webmanifest">
-		
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+			*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			}
+
+			body{
+			background-image: url("assets/img/repeat.jpg");
+			font-family: 'Josefin Sans', sans-serif;
+			overflow-x: hidden;
+			}
+		</style>
 	</head>
 	<body>
 		<!-- navigation -->
@@ -149,7 +163,7 @@ header("Location: patient/patient.php");
 												<div class="panel-body">
 													
 													Patient Name: <?php echo $userRow['patientFirstName'] ?> <?php echo $userRow['patientLastName'] ?><br>
-													Patient IC: <?php echo $userRow['icPatient'] ?><br>
+													Patient ID: <?php echo $userRow['icPatient'] ?><br>
 													Contact Number: <?php echo $userRow['patientPhone'] ?><br>
 													Address: <?php echo $userRow['patientAddress'] ?>
 												</div>
@@ -157,7 +171,8 @@ header("Location: patient/patient.php");
 											<div class="panel panel-default">
 												<div class="panel-heading">Appointment Information</div>
 												<div class="panel-body">
-													Day: <?php echo $userRow['scheduleDay'] ?><br>
+													Therapist: <?php echo $userRow['scheduleDay'] ?><br>
+													Branch: <?php echo $userRow['Branch'] ?><br>
 													Date: <?php echo $userRow['scheduleDate'] ?><br>
 													Time: <?php echo $userRow['startTime'] ?> - <?php echo $userRow['endTime'] ?><br>
 												</div>
@@ -175,7 +190,7 @@ header("Location: patient/patient.php");
 												<textarea class="form-control" name="comment" required></textarea>
 											</div>
 											<div class="form-group">
-												<input type="submit" name="appointment" id="submit" class="btn btn-primary" value="Make Appointment">
+												<input type="submit" name="appointment" id="submit" class="btn btn-danger" value="Make Appointment">
 											</div>
 										</form>
 									</div>

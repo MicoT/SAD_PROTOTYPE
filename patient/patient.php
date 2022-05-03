@@ -43,36 +43,37 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<script src="https://kit.fontawesome.com/f165d3da56.js" crossorigin="anonymous"></script>
 
 		<style>
-            html{
+			@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
 
-            }
-            #main {
-				position: fixed;
-                background: linear-gradient(-45deg, #a72222, #6d1111de, #23a6d5, #23d5ab);
-                background-size: 900% 900%;
-				translate: (-50%, -50%);
-                animation: gradient 15s ease infinite;
-                height: 1vh;
-            }
-
-            @keyframes gradient {
-                0% {
-                    background-position: 0% 50%;
-                }
-                50% {
-                    background-position: 100% 50%;
-                }
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-        </style>
+			*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			}
+			.font{
+				font-family: 'Josefin Sans', sans-serif;
+			}
+			#main{
+			background-image: url("assets/img/repeat.jpg");
+			font-family: 'Josefin Sans', sans-serif;
+			overflow-x: hidden;
+			}
+			.peach{
+				background-color:#e4b19cee;
+				padding: 10px;
+				border-radius: 10px;
+				color: red;
+			}
+			span{
+				color: red;
+			}
+		</style>
 		
 	</head>
 	<body >
 		
 		<!-- navigation -->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-top font" role="navigation">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<a class="navbar-brand" href="patient.php"><img alt="Brand" src="assets/img/logo.jpg" height="80px" style="margin-right: 10px;"></a>
@@ -119,7 +120,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 		<!-- navigation -->
 		
 		<!-- 1st section start -->
-		<div id="main" class="content-block" style="min-height: 750px; background-color:aqua;">
+		<div id="main" class="content-block" style="min-height: 750px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-md-5" style="margin-top: 210px;">
@@ -141,7 +142,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 							?>
 							
 							<!-- notification end -->
-							<h2 style="color: WHITE; font-weight:900;">Hi <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?>. Make an appointment today!</h2>
+							<h2 class="peach" style="color: black; font-weight:900;">Hi <span><?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?></span>. Make an appointment today!</h2>
 							<div class="input-group" ">
 								<div class="input-group-addon">
 								<i class="fa-solid fa-calendar"></i>
@@ -183,8 +184,8 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 						<!-- <div class="container"> -->
 						<div class="container">
 							<div class="row">
-								<div class="col-xs-12 col-md-8">
-									<div id="txtHint" style="overflow-x:auto;"></div>
+								<div class="col-md-12 ">
+									<div id="txtHint" style="overflow-x:auto; overflow-z:auto; height: 200px;"></div>
 								</div>
 							</div>
 						</div>

@@ -36,22 +36,6 @@ $male = "checked";
 }elseif ($userRow['patientGender']=='female') {
 $female = "checked";
 }
-$single="";
-$married="";
-$separated="";
-$divorced="";
-$widowed="";
-if ($userRow['patientMaritialStatus']=='single') {
-$single = "checked";
-}elseif ($userRow['patientMaritialStatus']=='married') {
-$married = "checked";
-}elseif ($userRow['patientMaritialStatus']=='separated') {
-$separated = "checked";
-}elseif ($userRow['patientMaritialStatus']=='divorced') {
-$divorced = "checked";
-}elseif ($userRow['patientMaritialStatus']=='widowed') {
-$widowed = "checked";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,28 +63,20 @@ $widowed = "checked";
         <link rel="manifest" href="assets/img/site.webmanifest">
 	</head>
 	<style>
-            html{
+			@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
 
-            }
-            #main {
-                background: linear-gradient(-45deg, #a72222, #6d1111de, #23a6d5, #23d5ab);
-                background-size: 400% 400%;
-                animation: gradient 15s ease infinite;
-                height: 1vh;
-            }
+			*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			}
 
-            @keyframes gradient {
-                0% {
-                    background-position: 0% 50%;
-                }
-                50% {
-                    background-position: 100% 50%;
-                }
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
-        </style>
+			body{
+			background-image: url("assets/img/repeat.jpg");
+			font-family: 'Josefin Sans', sans-serif;
+			overflow-x: hidden;
+			}
+		</style>
 	<body id="main">
 		
 		<!-- navigation -->
@@ -160,7 +136,7 @@ $widowed = "checked";
 						<div class="col-md-9 col-sm-9  user-wrapper">
 							<div class="description">
 								<h3> <?php echo $userRow['patientFirstName']; ?> <?php echo $userRow['patientLastName']; ?> </h3>
-								<hr />
+							
 								
 								<div class="panel panel-default">
 									<div class="panel-body">
@@ -169,12 +145,20 @@ $widowed = "checked";
 										<table class="table table-user-information" align="center">
 											<tbody>
 												<tr>
+													<td>Patient ID</td>
+													<td><?php echo $userRow['icPatient']; ?></td>
+												</tr>
+												<tr>
 													<td>Patient DOB</td>
 													<td><?php echo $userRow['patientDOB']; ?></td>
 												</tr>
 												<tr>
 													<td>Patient Gender</td>
 													<td><?php echo $userRow['patientGender']; ?></td>
+												</tr>
+												<tr>
+													<td>Patient Guardian:</td>
+													<td><?php echo $userRow['patientMaritialStatus']; ?></td>
 												</tr>
 												<tr>
 													<td>Patient Address</td>
@@ -218,18 +202,21 @@ $widowed = "checked";
 											<table class="table table-user-information">
 												<tbody>
 													<tr>
-														<td>IC Number:</td>
+														<td>Patient ID:</td>
 														<td><?php echo $userRow['icPatient']; ?></td>
 													</tr>
 													<tr>
 														<td>First Name:</td>
-														<td><input type="text" class="form-control" name="patientFirstName" value="<?php echo $userRow['patientFirstName']; ?>"  /></td>
+														<td><input type="text" class="form-control" name="patientFirstName" value="<?php echo $userRow['patientFirstName']; ?>" onkeydown="return /[a-z]/i.test(event.key)" /></td>
 													</tr>
 													<tr>
 														<td>Last Name</td>
-														<td><input type="text" class="form-control" name="patientLastName" value="<?php echo $userRow['patientLastName']; ?>"  /></td>
+														<td><input type="text" class="form-control" name="patientLastName" value="<?php echo $userRow['patientLastName']; ?>" onkeydown="return /[a-z]/i.test(event.key)" /></td>
 													</tr>
-													
+													<tr>
+														<td>Guardian (optional): </td>
+														<td><input type="text" class="form-control" name="patientMaritialStatus" value="<?php echo $userRow['patientMaritialStatus']; ?>" onkeydown="return /[a-z]/i.test(event.key)" /></td>
+													</tr>
 													<!-- radio button -->
 													<!-- radio button end -->
 													<tr>

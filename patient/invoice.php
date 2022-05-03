@@ -92,7 +92,7 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
                 <tr class="item">
                     <td>
-                        Appointment Day
+                        Therapist
                     </td>
                     
                     <td>
@@ -100,6 +100,15 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
                     </td>
                 </tr>
                 
+                <tr class="item">
+                    <td>
+                        Branch
+                    </td>
+                    
+                    <td>
+                        <?php echo $userRow['Branch'];?> 
+                    </td>
+                </tr>
 
                  <tr class="item">
                     <td>
