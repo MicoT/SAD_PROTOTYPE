@@ -71,8 +71,9 @@ $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
 			font-size: 52px;
 			margin-bottom: 60px;
 			text-align: center;
-			
+			background-color: #8e8b8b;
 			border-radius: 10px;
+			border: solid;
 			padding: 10px;
 			margin-left: 650px;
 			margin-right: 650px;

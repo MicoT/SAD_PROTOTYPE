@@ -93,6 +93,117 @@ header("Location: patient/patient.php");
 			font-family: 'Josefin Sans', sans-serif;
 			overflow-x: hidden;
 			}
+			.popup_box_disclaimer{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 5px;
+			}
+			.popup_box_disclaimer{
+			width: 400px;
+			background: #f2f2f2;
+			text-align: center;
+			align-items: center;
+			padding: 50px;
+			border: 1px solid #b3b3b3;
+			box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+			z-index: 9999;
+			display: none;
+			}
+			.popup_box_disclaimer i{
+			font-size: 60px;
+			color: #eb9447;
+			padding: 20px 40px;
+			margin: -10px 0 20px 0;
+			}
+			.popup_box_disclaimer h1{
+			font-size: 30px;
+			color: #1b2631;
+			margin-bottom: 5px;
+			}
+			.popup_box_disclaimer label{
+			font-size: 23px;
+			color: #404040;
+			}
+			.popup_box_notif .confirm{
+			margin: 40px 0 0 0;
+			}
+			.confirm .confirm-btn{
+			background: #999999;
+			color: white;
+			font-size: 18px;
+			border-radius: 5px;
+			border: 1px solid #808080;
+			padding: 10px 13px;
+			}
+			.confirm .confirm-btn{
+			margin-left: 20px;
+			background: #ff3333;
+			border: 1px solid #cc0000;
+			}
+			.confirm :hover{
+			transition: .5s;
+			background: #8c8c8c;
+			}
+			.confirm .confirm-btn:hover{
+			transition: .5s;
+			background: #e60000;
+			}
+
+			.popup_box_notif{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 5px;
+			}
+			.popup_box_notif{
+			width: 400px;
+			background: #f2f2f2;
+			text-align: center;
+			align-items: center;
+			padding: 40px;
+			border: 1px solid #b3b3b3;
+			box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+			z-index: 9999;
+			display: none;
+			}
+			.popup_box_notif i{
+			font-size: 60px;
+			color: #eb9447;
+			padding: 20px 40px;
+			border-radius: 50%;
+			margin: -10px 0 20px 0;
+			}
+			.popup_box_notif h1{
+			font-size: 30px;
+			color: #1b2631;
+			margin-bottom: 5px;
+			}
+			.popup_box_notif label{
+			font-size: 23px;
+			color: #404040;
+			}
+			.popup_box_notif .close{
+			margin: 40px 0 0 0;
+			}
+			.close .close-btn{
+			color: white;
+			font-size: 18px;
+			border-radius: 5px;
+			padding: 10px 13px;
+			}
+			.close .close-btn{
+			margin-left: 20px;
+			background: #ff3333;
+			border: 1px solid #cc0000;
+			}
+
+			.close .close-btn:hover{
+			transition: .5s;
+			background: #e60000;
+			}
 		</style>
 	</head>
 	<body>
@@ -189,9 +300,14 @@ header("Location: patient/patient.php");
 												<label for="message-text" class="control-label">Additional Information:</label>
 												<textarea class="form-control" name="comment" required></textarea>
 											</div>
-											<div class="form-group">
-												<input type="submit" name="appointment" id="submit" class="btn btn-danger" value="Make Appointment">
-											</div>
+												<a href="#" class="btn btn-danger notif">Make Appointment</a>
+												<a href="patient.php" class="btn btn-danger">Cancel</a>
+											<div class="popup_box_notif modal-fade" style="position:fixed;">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <h5 style="color: black">You have an appointment on <?php echo $userRow['scheduleDate'] ?>, at <?php echo $userRow['startTime'] ?>. The Appointment will take place at our branch in <?php echo $userRow['Branch'] ?>. Please let us know in advance if you cannot make it at +63 921 391 0361 or contact our email: dynamicprocesstherapycenter@gmail.com </h5>
+                                            <div class="close">
+                                                <button class=" close-btn btn-danger"type="submit" name="appointment" id="submit" type="submit">Confirm</button>
+                                            </div>
 										</form>
 									</div>
 								</div>
@@ -204,5 +320,21 @@ header("Location: patient/patient.php");
 					<!-- end -->
 					<script src="assets/js/jquery.js"></script>
 			<script src="assets/js/bootstrap.min.js"></script>
+			<script>
+        $(document).ready(function(){
+            $('.click').click(function(){
+            $('.popup_box_disclaimer').css("display", "block");
+            });
+            $('.confirm-btn').click(function(){
+            $('.popup_box_disclaimer').css("display", "none");
+            });
+            $('.notif').click(function(){
+            $('.popup_box_notif').css("display", "block");
+            });
+            $('.close-btn').click(function(){
+            $('.popup_box_notif').css("display", "none");
+            });
+        });
+    	</script>
 				</body>
 			</html>

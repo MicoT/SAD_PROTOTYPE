@@ -215,7 +215,7 @@ $female = "checked";
 													</tr>
 													<tr>
 														<td>Guardian (optional): </td>
-														<td><input type="text" class="form-control" name="patientMaritialStatus" value="<?php echo $userRow['patientMaritialStatus']; ?>" onkeydown="return /[a-z]/i.test(event.key)" /></td>
+														<td><input type="text" class="form-control" name="patientMaritialStatus" value="<?php echo $userRow['patientMaritialStatus']; ?>" /></td>
 													</tr>
 													<!-- radio button -->
 													<!-- radio button end -->

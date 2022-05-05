@@ -1,0 +1,16 @@
+THIS IS A PHP WEB APPLICATION
+
+IN ORDER TO LOAD THIS WEB APPICATION THE USER MUST HAVE THE FOLLOWING:
+1. BROWSER (PREFERABLY CHROME)
+2. XAMPP
+
+HOW TO LOAD PHP:
+1. DOWNLOAD ALL SOURCE FILE.
+2. EXTRACT FILES TO  XAMPP DIRECTORY ("...\xampp\htdocs\CLINIC_SYSTEM").
+3. Run XAMPP
+4. START APPACHE AND MYSQL SERVER
+5. Click "Admin" in XAMPP
+6. Create a database named "db_healthcare".
+7. Drag sql file from source files in the db_healthcare. (sql file can be found in the database folder in the CLINIC_SYSTEM)
+8.Type in the browser "localhost/CLINIC_SYSTEM/index.php"
+9.DONE!
